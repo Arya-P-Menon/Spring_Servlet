@@ -28,7 +28,7 @@ public class QuizController {
 	@PostMapping(value = "/create/{topic}")
 	public String newQuiz(@PathVariable("topic") String topic, HttpSession session) {
 		User user = (User) session.getAttribute("USER");
-		if(user.getRole().equals("Admin")) {
+		if(user!=null && user.getRole().equals("Admin")) {
 			Quiz q = new Quiz();
 			q.setTopic(topic);
 			int qcode = service.addQuiz(q);
