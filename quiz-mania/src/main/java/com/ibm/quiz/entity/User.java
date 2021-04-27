@@ -10,7 +10,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "quiz_users")
@@ -21,6 +20,10 @@ public class User {
 	private int uid;
 	@Column(length = 20)
 	private String username;
+	@Column(length = 20)
+	private String password;
+	@Column(length = 20)
+	private String role;
 	@Column(length = 10)
 	private boolean result;
 	
@@ -60,6 +63,23 @@ public class User {
 	public void setQuiz(Quiz quiz) {
 		this.quiz = quiz;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
 	
 	
 }
